@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生命数字解读报告 | 发现你的天赋使命</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>✨ 生命数字解读</h1>
+            <p class="subtitle">发现你的天赋使命 · 看见真实自我</p>
+        </header>
+
+        <!-- Main Form -->
+        <main class="main">
+            <form id="lifeForm" class="form-card">
+                <h2>📝 填写基本信息</h2>
+                
+                <div class="form-group">
+                    <label for="birthday">出生日期 <span class="required">*</span></label>
+                    <input type="date" id="birthday" name="birthday" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">性别 <span class="required">*</span></label>
+                    <select id="gender" name="gender" required>
+                        <option value="">请选择</option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">年龄</label>
+                    <input type="number" id="age" name="age" readonly placeholder="自动计算">
+                </div>
+
+                <div class="form-group">
+                    <label for="question">当前困惑或想了解的问题</label>
+                    <textarea id="question" name="question" rows="4" 
+                        placeholder="例如：事业方向、人际关系、情感困扰、人生选择等..."></textarea>
+                </div>
+
+                <button type="button" id="calcBtn" class="btn btn-secondary">
+                    🔢 计算我的生命数字
+                </button>
+
+                <!-- Result Display -->
+                <div id="resultArea" class="result-area hidden">
+                    <div class="life-number-display">
+                        <span class="number-label">你的生命数字</span>
+                        <span class="life-number" id="lifeNumber">-</span>
+                        <span class="master-label hidden" id="masterLabel">✨ 主数字</span>
+                    </div>
+                </div>
+
+                <!-- Redeem Code -->
+                <div class="redeem-section hidden" id="redeemSection">
+                    <div class="form-group">
+                        <label for="redeemCode">兑换码</label>
+                        <input type="text" id="redeemCode" placeholder="请输入兑换码" maxlength="12">
+                    </div>
+                    <button type="button" id="checkCodeBtn" class="btn btn-outline">
+                        验证兑换码
+                    </button>
+                    <span id="codeStatus" class="code-status"></span>
+                </div>
+
+                <!-- Generate Button -->
+                <button type="submit" id="generateBtn" class="btn btn-primary hidden">
+                    📄 生成专业解读报告
+                </button>
+            </form>
+
+            <!-- History -->
+            <div class="history-section">
+                <h3>📋 历史记录</h3>
+                <div id="historyList" class="history-list">
+                    <p class="empty-text">暂无记录</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>生命数字 · 照亮你的人生地图</p>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading" class="loading-overlay hidden">
+        <div class="loading-spinner"></div>
+        <p>AI 正在生成你的专属报告...</p>
+        <p class="loading-tip">这可能需要 30-60 秒</p>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
