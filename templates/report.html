@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生命数字解读报告</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        .report-container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .report-header { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 16px; margin-bottom: 30px; }
+        .life-number-large { font-size: 4em; font-weight: bold; margin: 10px 0; }
+        .report-content { background: white; border-radius: 16px; padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); line-height: 1.8; white-space: pre-wrap; }
+        .report-actions { display: flex; gap: 15px; justify-content: center; margin-top: 30px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #667eea; text-decoration: none; }
+        @media (max-width: 600px) { .report-content { padding: 20px; } .life-number-large { font-size: 3em; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← 返回首页</a>
+        <div class="report-container">
+            <div class="report-header">
+                <h1>✨ 生命数字解读报告</h1>
+                <div class="life-number-large">{{ report.life_number }}</div>
+                <p>✨ 主数字 {{ '是' if report.life_number in [11,22,33] else '否' }}</p>
+                <div class="report-meta" style="display:flex;justify-content:center;gap:30px;margin-top:20px;">
+                    <div><div style="opacity:0.8">出生日期</div><div style="font-size:1.5em;font-weight:bold">{{ report.birthday }}</div></div>
+                    <div><div style="opacity:0.8">年龄</div><div style="font-size:1.5em;font-weight:bold">{{ report.age }}岁</div></div>
+                    <div><div style="opacity:0.8">性别</div><div style="font-size:1.5em;font-weight:bold">{{ report.gender }}</div></div>
+                </div>
+            </div>
+            <div class="report-content">{{ report.report_content }}</div>
+            <div class="report-actions"><a href="/" class="btn btn-primary">生成新报告</a></div>
+        </div>
+        <footer class="footer"><p>生命数字 · 照亮你的人生地图</p></footer>
+    </div>
+</body>
+</html>
